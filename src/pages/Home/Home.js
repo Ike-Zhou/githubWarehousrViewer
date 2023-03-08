@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div>
-        Home
-      </div>
-    )
-  }
+export default function Home() {
+  const user = useSelector((state) => state)
+  return (
+    <div>
+      home
+      {
+        `username:${user.user.login}`
+      }
+    </div>
+  )
 }

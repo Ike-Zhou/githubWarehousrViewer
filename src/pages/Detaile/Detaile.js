@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Detaile extends Component {
-  render() {
-    return (
-      <>
-        detaile
-      </>
-    )
-  }
+export default function Detaile() {
+  return (
+    <div>
+      detaile
+    </div>
+  )
 }
