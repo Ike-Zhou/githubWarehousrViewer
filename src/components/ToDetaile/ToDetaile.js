@@ -3,9 +3,9 @@ import { Space, Button } from 'antd'
 import PropTypes from 'prop-types'
 
 export default function ToDetaile(props) {
-  const { change } = props
+  const { toDetaile, reposName } = props
   const click = () => {
-    change()
+    toDetaile(reposName)
   }
 
   return (
@@ -18,5 +18,6 @@ export default function ToDetaile(props) {
 }
 
 ToDetaile.propTypes = {
-  change: PropTypes.func.isRequired,
+  toDetaile: PropTypes.func.isRequired,
+  reposName: PropTypes.string.isRequired,
 }

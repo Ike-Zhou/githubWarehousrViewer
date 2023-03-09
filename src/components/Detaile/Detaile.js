@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function Detaile(props) {
+  console.log('Detaile', props)
   const { reposName } = props
   return (
     <div>

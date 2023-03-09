@@ -1,5 +1,5 @@
 import { Table } from 'antd'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import PropTypes from 'prop-types'
@@ -8,17 +8,6 @@ import { getReposSuccess } from '../../store/actions/repos'
 import { ToDetaile } from '../ToDetaile'
 
 function Tables(props) {
-  console.log('props:', props)
-
-  const { toDetaile } = props
-
-  const [reposName, setName] = useState('')
-  const clickDetaile = (name) => {
-    console.log('name:', name)
-    setName(name)
-    toDetaile(reposName)
-  }
-
   const columns = [
     {
       title: 'Name',
@@ -47,8 +36,8 @@ function Tables(props) {
       title: 'Action',
       key: 'action',
       width: '10%',
-      render: () => (
-        <ToDetaile {...props} />
+      render: (record) => (
+        <ToDetaile {...props} reposName={record.name} />
       ),
     },
   ]
@@ -67,9 +56,6 @@ function Tables(props) {
       columns={columns}
       dataSource={r.repos.repos}
       rowKey={(record) => record.id}
-      onRow={(record) => ({
-        onClick: () => { clickDetaile(record.name) },
-      })}
     />
   )
 }

@@ -15,8 +15,10 @@ export default function Home() {
     setToDetaile((to) => !to)
   }
   const [reposName, setName] = useState('')
-  const toDetaile = (name) => {
-    setName(name)
+  const toDetaile = async (name) => {
+    console.log('before:', name)
+    await setName(name)
+    await change()
   }
 
   return (
