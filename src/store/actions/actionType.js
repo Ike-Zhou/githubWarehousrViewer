@@ -1,1 +1,3 @@
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const GETREPOS_SUCCESS = 'GETREPOS_SUCCESS'
+export const TODETAILE = 'TODETAILE'

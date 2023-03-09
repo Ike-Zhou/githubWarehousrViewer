@@ -9,7 +9,7 @@ const ajax = axios.create({
 ajax.interceptors.request.use((config) => config)
 
 ajax.interceptors.response.use((resp) => {
-  console.log('resp', (resp))
+  console.log('resp:', (resp))
   if (resp.status === 200) {
     return resp.data
   }
@@ -18,4 +18,6 @@ ajax.interceptors.response.use((resp) => {
   }
 })
 
-export const login = (userdata) => ajax.get(`/users/${userdata.username}`, userdata)
+export const login = (userdata) => ajax.get(`/users/${userdata.username}`)
+
+export const getRepos = (username) => ajax.get(`/users/${username}/repos`)

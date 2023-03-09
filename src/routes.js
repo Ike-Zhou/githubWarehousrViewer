@@ -1,7 +1,6 @@
 import {
   Home,
   Login,
-  Detaile,
 } from './pages'
 
 const router = [
@@ -14,11 +13,6 @@ const router = [
     path: '/home',
     component: Home,
     title: 'Home',
-    is: true,
-  }, {
-    path: '/detaile',
-    component: Detaile,
-    title: 'Detaile',
     is: true,
   },
 ]

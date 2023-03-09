@@ -5,11 +5,10 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../service'
-
 import { loginSuccess } from '../../store/actions/user'
 
 export default function Login() {
-  const dipatch = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const toHome = () => {
     navigate('/home')
@@ -17,8 +16,7 @@ export default function Login() {
 
   const doLogin = (userdata) => {
     login(userdata).then((resp) => {
-      console.log('login:', resp)
-      dipatch(loginSuccess(resp))
+      dispatch(loginSuccess(resp))
       toHome()
     }).catch((e) => {
       console.log('error:', e.message)
