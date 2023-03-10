@@ -21,3 +21,5 @@ ajax.interceptors.response.use((resp) => {
 export const login = (userdata) => ajax.get(`/users/${userdata.username}`)
 
 export const getRepos = (username) => ajax.get(`/users/${username}/repos`)
+
+export const getDetaile = (username, reposName) => ajax.get(`/repos/${username}/${reposName}`)

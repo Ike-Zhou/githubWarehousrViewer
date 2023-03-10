@@ -1,4 +1,4 @@
 export { Tables } from './Tables'
-export { NoRepos } from './NoRepos'
+export { NoDescription } from './NoDescription'
 export { Detaile } from './Detaile'
 export { ToDetaile } from './ToDetaile'
