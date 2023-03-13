@@ -11,7 +11,7 @@ export default function ToDetaile(props) {
   return (
     <Space>
       <Button onClick={click}>
-        查看详情
+        <span>查看详情</span>
       </Button>
     </Space>
   )

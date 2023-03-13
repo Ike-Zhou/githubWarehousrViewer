@@ -19,7 +19,7 @@ export default function Login() {
       dispatch(loginSuccess(resp))
       toHome()
     }).catch((e) => {
-      console.log('error:', e.message)
+      console.error('Error in Logins:', e.message)
       message.info('用户名或密码错误')
     })
   }

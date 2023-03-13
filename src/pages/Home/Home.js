@@ -32,7 +32,6 @@ export default function Home() {
           to="/login"
           onClick={
           () => {
-            console.log(window.history)
             useNavigate('/login')
             window.location.reload()
           }
@@ -77,7 +76,10 @@ export default function Home() {
           <span>{u.user.login}</span>
         </div>
       </Header>
-      <Content style={{ margin: '24px 16px 0', backgroundColor: 'white', marginTop: '100px' }}>
+      <Content style={{
+        backgroundColor: 'white', marginTop: '100px', marginLeft: '16px', marginRight: '16px',
+      }}
+      >
         <div className="site-layout-background" style={{ padding: 24 }}>
           {
                   to ? (

@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import { Table, message } from 'antd'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import { getRepos } from '../../service'
 import { getReposSuccess } from '../../store/actions/repos'
 import { ToDetaile } from '../ToDetaile'
+import { Loading } from '../Loading'
 
 function Tables(props) {
   const columns = [
@@ -36,6 +37,7 @@ function Tables(props) {
       title: 'Action',
       key: 'action',
       width: '10%',
+      ellipsis: true,
       render: (record) => (
         <ToDetaile {...props} reposName={record.name} />
       ),
@@ -47,10 +49,16 @@ function Tables(props) {
   useEffect(() => {
     getRepos(u.user.login).then((resp) => {
       dispatch(getReposSuccess(resp))
+    }).catch((e) => {
+      console.error('Error in Tables:', e.message)
+      message.info('发生了未知错误请重试！')
     })
   }, [])
 
   const r = useSelector((state) => state)
+  if (!r.repos.repos) {
+    return <Loading />
+  }
   return (
     <Table
       columns={columns}

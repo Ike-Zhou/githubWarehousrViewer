@@ -5,6 +5,7 @@ import { Button, Descriptions } from 'antd'
 import moment from 'moment'
 import { getDetaile } from '../../service'
 import { NoDescription } from '../NoDescription'
+import { Loading } from '../Loading'
 
 export default function Detaile(props) {
   const { reposName, change } = props
@@ -27,6 +28,11 @@ export default function Detaile(props) {
     change()
   }
 
+  if (!state.name) {
+    return (
+      <Loading />
+    )
+  }
   return (
     <div>
       <Button onClick={back}>回到首页</Button>
